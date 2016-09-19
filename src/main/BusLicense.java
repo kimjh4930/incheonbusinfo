@@ -1,3 +1,4 @@
+package main;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -12,7 +13,8 @@ import model.BusResultModel;
 
 public class BusLicense {
 
-	public List loadBusLicenseInfo(List<BusResultModel> busModelList, int approvalNum) throws IOException {
+	public List loadBusLicenseInfo(List<BusResultModel> busModelList, int approvalNum)
+			throws IOException {
 		BufferedReader br;
 		List<Integer> downloadLicenseList = new ArrayList();
 		List<Integer> loadedLicenseList = new ArrayList();
