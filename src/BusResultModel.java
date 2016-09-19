@@ -1,76 +1,67 @@
 
 public class BusResultModel {
-	private int busRemainStopNum;
-	private int busRemainTimeM;
-	private int busNum;
-	private String busDirection;
-	private String busStartingPoint;
-	private String busTerminalPoint;
-	private String busCurrentLocation;
-	private int busRemainTimeMS;
+	private int currentBusNum;
+	private int temp1;
+	private int currentPosition;
+	private int busType;
+	private int formerBusNum;
+	private String busInterval;
+	private int temp2;
 
-	public int getBusRemainStopNum() {
-		return busRemainStopNum;
+	public int getCurrentBusNum() {
+		return currentBusNum;
 	}
 
-	public void setBusRemainStopNum(int busRemainStopNum) {
-		this.busRemainStopNum = busRemainStopNum;
+	public void setCurrentBusNum(int currentBusNum) {
+		this.currentBusNum = currentBusNum;
 	}
 
-	public int getBusRemainTimeM() {
-		return busRemainTimeM;
+	public int getTemp1() {
+		return temp1;
 	}
 
-	public void setBusRemainTimeM(int busRemainTimeM) {
-		this.busRemainTimeM = busRemainTimeM;
+	public void setTemp1(int temp1) {
+		this.temp1 = temp1;
 	}
 
-	public int getBusNum() {
-		return busNum;
+	public int getCurrentPosition() {
+		return currentPosition;
 	}
 
-	public void setBusNum(int busNum) {
-		this.busNum = busNum;
+	public void setCurrentPosition(int currentPosition) {
+		this.currentPosition = currentPosition;
 	}
 
-	public String getBusDirection() {
-		return busDirection;
+	public int getBusType() {
+		return busType;
 	}
 
-	public void setBusDirection(String busDirection) {
-		this.busDirection = busDirection;
+	public void setBusType(int busType) {
+		this.busType = busType;
 	}
 
-	public String getBusStartingPoint() {
-		return busStartingPoint;
+	public int getFormerBusNum() {
+		return formerBusNum;
 	}
 
-	public void setBusStartingPoint(String busStartingPoint) {
-		this.busStartingPoint = busStartingPoint;
+	public void setFormerBusNum(int formerBusNum) {
+		this.formerBusNum = formerBusNum;
 	}
 
-	public String getBusTerminalPoint() {
-		return busTerminalPoint;
+	public String getBusInterval() {
+		return busInterval;
 	}
 
-	public void setBusTerminalPoint(String busTerminalPoint) {
-		this.busTerminalPoint = busTerminalPoint;
+	public void setBusInterval(String busInterval) {
+		this.busInterval = busInterval;
 	}
 
-	public String getBusCurrentLocation() {
-		return busCurrentLocation;
+	public int getTemp2() {
+		return temp2;
 	}
 
-	public void setBusCurrentLocation(String busCurrentLocation) {
-		this.busCurrentLocation = busCurrentLocation;
-	}
-
-	public int getBusRemainTimeMS() {
-		return busRemainTimeMS;
-	}
-
-	public void setBusRemainTimeMS(int busRemainTimeMS) {
-		this.busRemainTimeMS = busRemainTimeMS;
+	public void setTemp2(int temp2) {
+		this.temp2 = temp2;
 	}
 
 }

@@ -4,31 +4,35 @@ public class BusInfoSplit {
 	public BusResultModel splitBusInfo(String busInfoCorpus){
 		BusResultModel model = new BusResultModel();
 
-		String[] spl = busInfoCorpus.split(",");
+		String[] spl = busInfoCorpus.split(";");
 		
-		model.setBusRemainStopNum	(Integer.parseInt(spl[0]));
-		model.setBusRemainTimeM		(Integer.parseInt(spl[1]));
-		model.setBusNum				(Integer.parseInt(spl[2]));
-		model.setBusDirection		(spl[3]);
-		model.setBusStartingPoint	(spl[4]);
-		model.setBusTerminalPoint	(spl[5]);
-		model.setBusCurrentLocation	(spl[6]);
-		model.setBusRemainTimeMS	(Integer.parseInt(changeTimeForm(spl[7])));
+		model.setCurrentBusNum		(Integer.parseInt(spl[0]));
+		model.setTemp1				(Integer.parseInt(spl[1]));
+		model.setCurrentPosition	(Integer.parseInt(spl[2]));
+		model.setBusType			(Integer.parseInt(spl[3]));
+		model.setFormerBusNum		(Integer.parseInt(spl[4]));
+		model.setBusInterval		(changeTimeForm(Integer.parseInt(spl[5])));
+		model.setTemp2				(Integer.parseInt(spl[6]));
 		
 		return model;
 	}
 	
-	public String changeTimeForm(String time){
+	public String changeTimeForm(int time){
 		
-		String[] spl = time.split("분");
-		int minute, second;
+		int minute;
+		int second;
+		String mmss;;
+		
+		if (time == -999){
+			return "츨발전";
+		}
+		
+		minute = time / 60;
+		second = time % 60;
 
-		minute = Integer.parseInt(spl[0]) * 60;
-		second = Integer.parseInt(spl[1].replaceAll("초", ""));
+		mmss = minute +"분 " + second +"초";
 		
-		second += minute;
-		
-		return String.valueOf(second);
+		return mmss;
 	}
 
 }
