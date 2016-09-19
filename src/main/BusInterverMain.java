@@ -24,7 +24,8 @@ public class BusInterverMain {
 		List<String>			busInfoList 			= new ArrayList<>();
 		List<String>			trafficInfoList			= new ArrayList<>();
 		List<BusResultModel> 	busInfoModelList		= new ArrayList<>();
-		List<TrafficModel>		trafficInfoModelList 	= new ArrayList<>();		
+		List<TrafficModel>		trafficInfoModelList 	= new ArrayList<>();
+		List<Integer>			approvalBusList			= new ArrayList<>();
 		
 		BusLineInfoModel		busLineInfo				= new BusLineInfoModel();
 		
@@ -59,8 +60,9 @@ public class BusInterverMain {
 //							"\t\t구간속도 : " + trafficInfoModelList.get(i).getBusSpeed());
 		}
 		
-		//write.TrafficResulteWrite(trafficInfoModelList);
-		//write.BusLocationWrite(busInfoModelList);
-		System.out.println(getLicense.loadBusLicenseInfo(busInfoModelList,busLineInfo.getWeekdayApprovalNum()));
+		write.TrafficResulteWrite(trafficInfoModelList);
+		
+		approvalBusList = getLicense.loadBusLicenseInfo(busInfoModelList,busLineInfo.getWeekdayApprovalNum());
+		write.BusLocationWrite(busInfoModelList, approvalBusList);
 	}
 }
