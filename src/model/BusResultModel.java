@@ -1,3 +1,4 @@
+package model;
 
 public class BusResultModel {
 	private int currentBusNum;

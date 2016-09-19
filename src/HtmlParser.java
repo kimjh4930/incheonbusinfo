@@ -90,5 +90,23 @@ public class HtmlParser {
 		
 		return trafficList;
 	}
+	
+	public String getBusLineInfo(String html){
+		
+		String PageData = html.trim();
+		
+		String lineInfoRegex = String.format("\\d+;\\d+;\\d+;\\d+;\\d{4};\\d{4};\\d+;\\d+;\\d{4};\\d{4};\\d+;\\d+");
+		
+		Pattern lineInfoPattern = Pattern.compile(lineInfoRegex);
+		Matcher lineInfoPatternMatches = lineInfoPattern.matcher(PageData);
+		
+		String lineInfo = "";
+		
+		while(lineInfoPatternMatches.find()){
+			lineInfo = lineInfoPatternMatches.group(0).trim();
+		}
+		
+		return lineInfo;
+	}
 
 }
