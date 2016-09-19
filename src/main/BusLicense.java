@@ -50,7 +50,7 @@ public class BusLicense {
 			loadedLicenseList = splitLoadData(result);
 			
 			if(approvalNum == loadedLicenseList.size()){
-				System.out.println("여기서 종료");
+				//System.out.println("여기서 종료");
 				return loadedLicenseList;
 			}else{
 			
@@ -68,6 +68,7 @@ public class BusLicense {
 
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
+			//System.out.println("FileNotFoundException");
 			return writeToFile(downloadLicenseList);
 		}
 	}
@@ -110,9 +111,6 @@ public class BusLicense {
 		List<Integer> list = new ArrayList();
 
 		String[] spl = data.split(",");
-		
-		System.out.println(data);
-		System.out.println(spl.length);
 
 		for (int i = 0; i < spl.length; i++) {
 			list.add(Integer.parseInt(spl[i]));

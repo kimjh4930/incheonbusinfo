@@ -41,8 +41,6 @@ public class ResultWrite {
 		try {
 			FileWriter fw = new FileWriter("C:/workspace/BusInterver/BusLocationResult.txt", true);
 			
-			System.out.println(approvalBusList.indexOf(approvalBusList.get(3)));
-			
 			int[] value = new int[approvalBusList.size()];
 			List<Integer> currentPosList = new ArrayList<>();
 			Arrays.fill(value, 0);			

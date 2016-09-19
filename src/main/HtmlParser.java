@@ -59,15 +59,10 @@ public class HtmlParser {
 
 		String busGapInfo = "";
 
-		System.out.println(operateBusPatternMatches.find());
-
 		while (operateBusPatternMatches.find()) {
 			busGapInfo = operateBusPatternMatches.group(0).trim();
 			operateBusList.add(busGapInfo);
 		}
-
-		System.out.println(operateBusList.size());
-		System.out.println(operateBusList);
 
 		return operateBusList;
 	}
