@@ -31,7 +31,7 @@ public class BusInterverMain {
 		trafficInfoList = parser.getTrafficInfo(html);
 		
 		
-		/*for(int i=0; i < busInfoList.size(); i++){
+		for(int i=0; i < busInfoList.size(); i++){
 			busInfoModelList.add(split.splitBusInfo(busInfoList.get(i)));
 			
 			System.out.println("버스번호 : " + busInfoModelList.get(i).getCurrentBusNum() + 
@@ -39,7 +39,7 @@ public class BusInterverMain {
 							"\t\t버스유형 : " + busInfoModelList.get(i).getBusType() +
 							"\t\t선행버스 : " + busInfoModelList.get(i).getFormerBusNum() +
 							"\t\t버스간격 : " + busInfoModelList.get(i).getBusInterval());
-		}	*/
+		}
 		
 		for(int i=0; i < trafficInfoList.size(); i++){
 			trafficInfoModelList.add(split.splitTrafficInfo(trafficInfoList.get(i)));
