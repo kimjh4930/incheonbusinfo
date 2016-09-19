@@ -26,7 +26,7 @@ public class BusInterverMain {
 		int sleepSec = 10;
 
 		// 시간 출력 포맷
-		final SimpleDateFormat fmt = new SimpleDateFormat("HH:mm:ss");
+		final SimpleDateFormat fmt = new SimpleDateFormat("HHmmss");
 
 		// 주기적인 작업을 위한
 		final ScheduledThreadPoolExecutor exec = new ScheduledThreadPoolExecutor(1);
