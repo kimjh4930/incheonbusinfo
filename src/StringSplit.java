@@ -1,5 +1,5 @@
 
-public class BusInfoSplit {
+public class StringSplit {
 	
 	public BusResultModel splitBusInfo(String busInfoCorpus){
 		BusResultModel model = new BusResultModel();
@@ -13,6 +13,19 @@ public class BusInfoSplit {
 		model.setFormerBusNum		(Integer.parseInt(spl[4]));
 		model.setBusInterval		(changeTimeForm(Integer.parseInt(spl[5])));
 		model.setTemp2				(Integer.parseInt(spl[6]));
+		
+		return model;
+	}
+	
+	public TrafficModel splitTrafficInfo(String trafficInfoCorpus){
+		TrafficModel model = new TrafficModel();
+		
+		String[] spl = trafficInfoCorpus.split(";");
+		
+		model.setBusStopIndex		(Integer.parseInt(spl[0]));
+		model.setBusStopId			(Integer.parseInt(spl[1]));
+		model.setTemp				(Integer.parseInt(spl[2]));
+		model.setBusSpeed			(Integer.parseInt(spl[3]));
 		
 		return model;
 	}
