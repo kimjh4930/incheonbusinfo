@@ -42,7 +42,8 @@ public class HtmlParser {
 				conn.disconnect();
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			DownloadHtml(strURL);
+			//e.printStackTrace();
 		}
 
 		return html.toString();

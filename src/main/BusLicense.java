@@ -28,7 +28,7 @@ public class BusLicense {
 		Collections.sort(downloadLicenseList);
 
 		try {
-			br = new BufferedReader(new FileReader("C:/workspace/BusInterver/BusLicenseList.txt"));
+			br = new BufferedReader(new FileReader("C:/workspace_jsp/BusInterver/BusLicenseList.txt"));
 
 			while (true) {
 				String line = br.readLine();
@@ -50,7 +50,7 @@ public class BusLicense {
 			loadedLicenseList = splitLoadData(result);
 			
 			if(approvalNum == loadedLicenseList.size()){
-				//System.out.println("여기서 종료");
+				//System.out.println("�뿬湲곗꽌 醫낅즺");
 				return loadedLicenseList;
 			}else{
 			

@@ -21,12 +21,14 @@ public class BusInterverMain {
 
 	public static List<BusResultModel> busInfoList;
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException, InterruptedException {
 		// 실행간격 지정(3초)
 		int sleepSec = 10;
 
 		// 시간 출력 포맷
 		final SimpleDateFormat fmt = new SimpleDateFormat("HHmmss");
+		
+		//Thread.sleep(60000*110);
 
 		// 주기적인 작업을 위한
 		final ScheduledThreadPoolExecutor exec = new ScheduledThreadPoolExecutor(1);
@@ -44,15 +46,15 @@ public class BusInterverMain {
 				} catch (Exception e) {
 
 					e.printStackTrace();
-
+					
 					// 에러 발생시 Executor를 중지시킨다
-					exec.shutdown();
+					//exec.shutdown();
 				}
 			}
 		}, 0, sleepSec, TimeUnit.SECONDS);
 	}	
 
-	public static void runtest() throws IOException {
+	public static void runtest() throws IOException, InterruptedException {
 		List<String> busInfoList = new ArrayList<>();
 		List<String> trafficInfoList = new ArrayList<>();
 		List<BusResultModel> busInfoModelList = new ArrayList<>();

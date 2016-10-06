@@ -10,6 +10,8 @@ public class StringSplit {
 
 		String[] spl = busInfoCorpus.split(";");
 		
+		//System.out.println("busInfoCorpus : " + busInfoCorpus);
+		
 		model.setCurrentBusNum		(Integer.parseInt(spl[0]));
 		model.setTemp1				(Integer.parseInt(spl[1]));
 		model.setCurrentPosition	(Integer.parseInt(spl[2]));
@@ -26,6 +28,7 @@ public class StringSplit {
 		
 		String[] spl = trafficInfoCorpus.split(";");
 		
+		//System.out.println("trafficInfoCorpus : " + trafficInfoCorpus);
 		model.setBusStopIndex		(Integer.parseInt(spl[0]));
 		model.setBusStopId			(Integer.parseInt(spl[1]));
 		model.setTemp				(Integer.parseInt(spl[2]));
@@ -39,16 +42,19 @@ public class StringSplit {
 		
 		String[] spl = lineInfoCorpus.split(";");
 		
-		model.setWeekdayApprovalNum	(Integer.parseInt(spl[0]));
-		model.setWeekendApprovalNum (Integer.parseInt(spl[1]));
-		model.setWDStartTime		(Integer.parseInt(spl[4]));
-		model.setWDEndTime			(Integer.parseInt(spl[5]));
-		model.setWDUnderBoundGap	(Integer.parseInt(spl[6]));
-		model.setWDUpperBoundGap	(Integer.parseInt(spl[7]));
-		model.setWEStartTime		(Integer.parseInt(spl[8]));
-		model.setWEEndTime			(Integer.parseInt(spl[9]));
-		model.setWEUnderBoundGap	(Integer.parseInt(spl[10]));
-		model.setWEUpperBoundGap	(Integer.parseInt(spl[11]));
+		//System.out.println("lineInfoCorpus : " + lineInfoCorpus);
+		model.setWeekdayApprovalNum	(11);
+		model.setWeekendApprovalNum (11);
+		//model.setWeekdayApprovalNum	(Integer.parseInt(spl[0]));
+		//model.setWeekendApprovalNum (Integer.parseInt(spl[1]));
+		//model.setWDStartTime		(Integer.parseInt(spl[4]));
+		//model.setWDEndTime			(Integer.parseInt(spl[5]));
+		//model.setWDUnderBoundGap	(Integer.parseInt(spl[6]));
+		//model.setWDUpperBoundGap	(Integer.parseInt(spl[7]));
+		//model.setWEStartTime		(Integer.parseInt(spl[8]));
+		//model.setWEEndTime			(Integer.parseInt(spl[9]));
+		//model.setWEUnderBoundGap	(Integer.parseInt(spl[10]));
+		//model.setWEUpperBoundGap	(Integer.parseInt(spl[11]));
 		
 		return model;
 	}
