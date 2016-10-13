@@ -47,10 +47,12 @@ public class HtmlParser {
 		
 		//System.out.println(html.toString());
 		
-		return html.toString();
+		//return html.toString().replaceAll("\\p{Z}", "");
+		//return html.toString().replace(" ", "").replace("\t", "").replace("\r", "");
+		return html.toString().replaceAll("\\p{Space}", "");
 	}
 	
-	public String getBusGapInfo(String html){
+	/*public String getBusGapInfo(String html){
 		
 		String PageData = html.trim();
 		String operateBusRegex = String.format("\\d{7};\\d+;\\d+;\\d;\\d+;-?\\d+;\\d");
@@ -70,11 +72,14 @@ public class HtmlParser {
 		System.out.println(busGapInfo);
 		
 		return "";
-	}
+	}*/
 	
-/*	public String getBusInfo(String html){
+	public String getBusInfo(String html){
 		
 		String PageData = html.trim();
+		
+		//System.out.println(PageData);
+		
 		String busStopRegex = String.format("<tdalign=\"center\"bgcolor=\"#FFFFFF\">521</td>" 	//노선번호
 				+ "<tdalign=\"center\"bgcolor=\"#FFFFFF\">[가-힣]{1,2}</td>"							//방향
 				+ "<tdalign=\"center\"bgcolor=\"#FFFFFF\">옥련중학교</td>"								//기점
@@ -111,7 +116,8 @@ public class HtmlParser {
 			busStopInfo = "521,상행,옥련중학교,동인천,출발전,0분0초";
 		
 		
+		System.out.println(busLocationInfo + busStopInfo);
 		
 		return busLocationInfo + busStopInfo;
-	}*/
+	}
 }
