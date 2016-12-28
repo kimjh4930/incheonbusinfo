@@ -9,6 +9,7 @@ import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
 
+import model.BusIntervalModel;
 import model.BusResultModel;
 import model.TrafficModel;
 
@@ -92,5 +93,56 @@ public class ResultWrite {
 		} catch (FileNotFoundException e) {
 
 		}
+	}
+	
+	public void BusIntervalWrite(List<BusResultModel> resultModel) throws IOException {
+		
+		final SimpleDateFormat filenameDate = new SimpleDateFormat("yyyy-MM-dd");
+		final SimpleDateFormat departTime 	= new SimpleDateFormat("HHmmss");
+		
+		Calendar cal = Calendar.getInstance();		//Wed Dec 28 11:58:06 KST 2016
+			
+		String filename = filenameDate.format(cal.getTime());
+		String depart	= departTime.format(cal.getTime());
+		
+		String outputString = null;
+		
+		BusIntervalModel intervalModel = new BusIntervalModel();
+		
+		try{
+			FileWriter fw = new FileWriter(filename + "_9200.txt", true);
+			
+//			for(int i = 0; i < resultModel.size(); i++){
+//				
+//			}
+			for(int i=0; i<resultModel.size(); i++){
+				if(resultModel.get(i).getCurrentPosition() == 1){
+					continue;
+				}else{
+					
+					
+					intervalModel.setDate(depart);
+					intervalModel.setMillisTime(System.currentTimeMillis());
+					intervalModel.setBusLicenseNumber(resultModel.get(i).getCurrentBusNum());
+					intervalModel.setBusInterval(resultModel.get(i).getBusInterval());
+					intervalModel.setBusCurrentLocation(resultModel.get(i).getCurrentPosition());
+					intervalModel.setFormerBusLicense(resultModel.get(i).getFormerBusNum());
+					
+					//이전 model과 비교
+					
+					//이전 모델이 null 이라면 현재 자료를 넣음.
+					
+					break;
+				}
+				
+			}
+			
+			
+			
+			
+		}catch(FileNotFoundException e){
+			
+		}
+		
 	}
 }
