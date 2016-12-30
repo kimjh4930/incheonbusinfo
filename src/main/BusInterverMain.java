@@ -42,7 +42,7 @@ public class BusInterverMain {
 					Calendar cal = Calendar.getInstance();
 
 					// 콘솔에 현재 시간 출력
-					System.out.println(fmt.format(cal.getTime()));
+					//System.out.println(fmt.format(cal.getTime()));
 					runtest();
 
 				} catch (Exception e) {
@@ -71,8 +71,8 @@ public class BusInterverMain {
 		ResultWrite 			write 					= new ResultWrite();
 		BusLicense 				getLicense 				= new BusLicense();
 
-		//String busURL = "http://bus.incheon.go.kr/iwcm/retrieverouteruninfolist.laf?routenm=521&routeid=165000083&authtpcd=&rNo=363";
-		String busURL = "http://bus.incheon.go.kr/iwcm/retrieverouteruninfolist.laf?routenm=9200&routeid=165000161&authtpcd=2&rNo=798";
+		String busURL = "http://bus.incheon.go.kr/iwcm/retrieverouteruninfolist.laf?routenm=521&routeid=165000083&authtpcd=&rNo=363";
+		//String busURL = "http://bus.incheon.go.kr/iwcm/retrieverouteruninfolist.laf?routenm=9200&routeid=165000161&authtpcd=2&rNo=798";
 
 		String html = parser.DownloadHtml(busURL);
 

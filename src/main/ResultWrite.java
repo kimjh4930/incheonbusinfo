@@ -100,17 +100,26 @@ public class ResultWrite {
 		final SimpleDateFormat filenameDate = new SimpleDateFormat("yyyy-MM-dd");
 		final SimpleDateFormat departTime 	= new SimpleDateFormat("HHmmss");
 		
+		//FileReader
+		FileReader fileReader = new FileReader();
 		Calendar cal = Calendar.getInstance();		//Wed Dec 28 11:58:06 KST 2016
 			
 		String filename = filenameDate.format(cal.getTime());
 		String depart	= departTime.format(cal.getTime());
 		
+		String recentBusLicense = null;
+		
 		String outputString = null;
+		String info = null;
 		
 		BusIntervalModel intervalModel = new BusIntervalModel();
 		
+		//이전 버스 License 를 갖고있음
+		recentBusLicense = fileReader.readTextFromFile();
+		
 		try{
-			FileWriter fw = new FileWriter(filename + "_9200.txt", true);
+			FileWriter writeToBusNumFile = new FileWriter(filename + "_9200.txt", true);
+			FileWriter writeRecentBusFile = new FileWriter("recentBusLicense.txt", false);
 			
 //			for(int i = 0; i < resultModel.size(); i++){
 //				
@@ -120,24 +129,45 @@ public class ResultWrite {
 					continue;
 				}else{
 					
-					
 					intervalModel.setDate(depart);
 					intervalModel.setMillisTime(System.currentTimeMillis());
-					intervalModel.setBusLicenseNumber(resultModel.get(i).getCurrentBusNum());
-					intervalModel.setBusInterval(resultModel.get(i).getBusInterval());
+					intervalModel.setBusLicenseNumber(String.valueOf(resultModel.get(i).getCurrentBusNum()));
 					intervalModel.setBusCurrentLocation(resultModel.get(i).getCurrentPosition());
 					intervalModel.setFormerBusLicense(resultModel.get(i).getFormerBusNum());
+					intervalModel.setBusInterverTime(resultModel.get(i).getBusInterval());
+					
+					//이전버스
+					if(resultModel.size() != i){
+						intervalModel.setBusInterval(resultModel.get(i+1).getBusInterval());
+						intervalModel.setFormerBusLocation(resultModel.get(i+1).getCurrentPosition());
+					}
 					
 					//이전 model과 비교
-					
-					//이전 모델이 null 이라면 현재 자료를 넣음.
+					if(!intervalModel.getBusLicenseNumber().equals(recentBusLicense)){
+						//다르니까 _9200.txt와, recentBusLicense.txt에 같이 저장.
+						System.out.println("다름");
+						System.out.println("recentBusLicense                    : " + recentBusLicense);
+						System.out.println("intervalModel.getBusLicenseNumber() : " + intervalModel.getBusLicenseNumber());
+						writeRecentBusFile.write(intervalModel.getBusLicenseNumber());
+						info = intervalModel.getDate() + "," + intervalModel.getMillisTime() + "," + intervalModel.getBusLicenseNumber() + "," +
+								intervalModel.getBusInterval() + "," + intervalModel.getBusCurrentLocation() + "," + intervalModel.getFormerBusLicense() + "," +
+								intervalModel.getFormerBusLocation();
+						
+						writeToBusNumFile.write(info);
+						writeToBusNumFile.write("\r\n");
+					}else{
+						//같으니까 저장하지 않음.
+						writeRecentBusFile.write(intervalModel.getBusLicenseNumber());
+						System.out.println("같음");
+					}
 					
 					break;
 				}
 				
 			}
 			
-			
+			writeRecentBusFile.close();
+			writeToBusNumFile.close();
 			
 			
 		}catch(FileNotFoundException e){
